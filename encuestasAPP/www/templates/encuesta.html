@@ -1,0 +1,29 @@
+<ion-view view-title="{{titulo}}">
+	<ion-content padding="true">
+	<!-- Descripcion -->
+		<p>{{encuesta.descripcion}}</p>
+		<!-- Preguntas -->
+		<div class="list card" ng-repeat="pregunta in encuesta.preguntas">
+			<ion-item class="item-icon-left positive multiline">
+			<i class="icon ion-android-checkmark-circle"></i>{{pregunta.descripcion}}</ion-item>
+			<!-- Opciones -->
+			<div class="list">
+			<!-- Opciones: Descripcion y lista de opciones -->
+				<div ng-switch="pregunta.tipo">
+					<div ng-switch-when="respuesta_simple">
+						<ion-radio ng-model="opcion.seleccionada"
+ng-repeat="opcion in pregunta.opciones" ng-value="true">{{opcion.nombre}}</ion-radio>
+					</div>
+					<!-- Respuesta con solucion multiple -->
+					<div ng-switch-when="respuesta_multiple">
+						<ion-checkbox ng-model="opcion.seleccionada"
+ng-repeat="opcion in pregunta.opciones">{{opcion.nombre}}</ion-radio>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Boton:Submit -->
+	<button ng-click='submitEncuesta()'
+class="button button-positive button-full">Enviar</button>
+	</ion-content>
+</ion-view>

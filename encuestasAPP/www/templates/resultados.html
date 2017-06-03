@@ -1,0 +1,23 @@
+<ion-view view-title="{{titulo}}">
+	<ion-content padding="true">
+	<!-- Recargar resultados de la encuesta -->
+		<ion-refresher
+pulling-text="Refrescar resultados"
+on-refresh="cargarResultados()">
+		</ion-refresher>
+		<!-- Descripcion -->
+		<p>{{encuesta.descripcion}}</p>
+		<!-- Resultados -->
+		<div class="list card" ng-repeat="pregunta in encuesta.preguntas">
+			<ion-item class="item-icon-left positive multiline">
+				<i class="icon ion-android-checkmark-circle"></i>
+				{{pregunta.descripcion}}
+			</ion-item>
+		<!-- Gráfico -->
+			<canvas id="bar" class="chart chart-bar"
+chart-data="pregunta.data"
+chart-labels="pregunta.opciones">
+			</canvas>
+		</div>
+	</ion-content>
+</ion-view>
