@@ -1,1 +1,32 @@
 /* Empty. Add your own CSS if you like */
+
+.menu-list .item-content {
+padding: 0px !important;
+}
+.menu-item {
+padding-top: 1rem;
+}
+.cover {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.multiline {
+white-space: normal;
+}
+/* Arreglo para problema de ion-refresher en side menus */
+.overflow-scroll > .scroll.overscroll {
+position: static !important;
+}
+
+.welcome{
+	background: url(../img/background-kyoto.jpg) no-repeat center fixed; 
+ 	background-size: cover;
+}
+.wellcome-info {
+	text-align:center;
+}
+
+.welcome-opacity{
+	background:rgba(255,255,255,0.5);
+}
